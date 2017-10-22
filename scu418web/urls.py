@@ -15,8 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from lab.views import homepage
+from lab.views import homepage,brief_introduction_of_laboratory
 urlpatterns = [
     url(r'^$', homepage),
+    url(r'^brief_introduction_of_laboratory/$', brief_introduction_of_laboratory),
     url(r'^admin/', admin.site.urls),
 ]
