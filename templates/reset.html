@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>重置密码</title>
+</head>
+<body>
+  <form action="{% url 'modify' %}" method="post">
+      <input type="hidden" name="email" value={{ email }}>
+      新密码： <input type="password" name="password1" ><br><br>
+      确认密码： <input type="password" name="password2"><br><br>
+      <input type="submit" value="提交"><br><br>
+      {{ msg }}
+      {% csrf_token %}
+  </form>
+</body>
+</html>

@@ -4,6 +4,15 @@ from django.http import HttpResponse
 
 from datetime import datetime
 # Create your views here.
+def test(request):
+    """
+    测试页
+    :param request:
+    :return:
+    """
+    template = get_template('test.html')
+    html = template.render()
+    return HttpResponse(html)
 
 def homepage(request):
     """
@@ -21,6 +30,6 @@ def brief_introduction_of_laboratory(request):
     :param request:
     :return:
     """
-    template = get_template('brief_introduction_of_laboratory.html')
+    template = get_template('brief_introduction_of_laboratory/brief_introduction_of_laboratory.html')
     html = template.render()
     return HttpResponse(html)

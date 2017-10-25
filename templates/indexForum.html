@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能信息处理实验室论坛</title>
+</head>
+<body>
+ {% if request.user.is_authenticated %}
+    <label>{{ request.user.username }}</label>
+ {% else %}
+    <a href="{% url 'login' %}">登录</a>
+    <a href="{% url 'register' %}">注册</a>
+ {% endif %}
+</body>
+</html>

@@ -1,4 +1,6 @@
+beautifulsoup4==4.6.0
 boto==2.48.0
+captcha==0.2.4
 certifi==2017.7.27.1
 chardet==3.0.4
 Django==1.10.5
@@ -8,6 +10,7 @@ django-compressor==2.2
 django-el-pagination==3.1.0
 django-markdown-deux==1.0.5
 django-modelcluster==3.1
+django-simple-captcha==0.5.5
 django-simple-pagination==1.1.8
 django-storages==1.6.5
 django-taggit==0.22.1

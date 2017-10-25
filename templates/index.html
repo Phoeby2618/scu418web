@@ -1,18 +1,6 @@
 <!-- index.html -->
-{% extends 'base.html' %}
-{% block title %}欢迎来到418lab{% endblock %}
+{% extends 'base2.html' %}
+{% block title %}川大计算机418实验室{% endblock %}
 {% block content %}
-    <div class="container">
-        <div class="row">
-        <div class="clo-md-2"></div>
-        <div class="clo-md-8">
-            {%  include 'carouse_pictures.html' %}
-        </div>
-        <div class="clo-md-2"></div>
-        </div>
-    </div>
-    <br>
-    <p>
-    机器学习是计算机科学的一个子领域，1959年一个叫Arthur Samuel的人给出了机器学习的定义“计算机有能力去学习，而不是通过预先准确实现的代码”。在人工智能领域，机器学习逐渐发展成模式识别和计算科学理论的研究。机器学习探索可以预测数据的算法的研究和建设--比如有些算法克服了严谨的静态的程序流程，通过从简单的数据中构建简单的模型来进行数据预测或者下决定。机器学习被应用于大规模计算性任务，尤其是当设计和编程过程中拥有良好表现的确切算法是难以实现或者不能实现的时候。简单的几个应用：email过滤，检测网络入侵者，OCR，排序学习，计算机视觉。
-    </p>
+    {%  include 'carouse_pictures2.html' %}
 {% endblock %}

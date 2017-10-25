@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>忘记密码</title>
+</head>
+<body>
+  <form action="{% url 'forget' %} " method="post">
+      邮箱： <input type="email" name="email">{{ msg }}<br><br>
+      <label>验证码</label>
+      {{ forget_form.captcha }}<br><br>
+      <input type="submit" value="提交">
+      {% csrf_token %}
+  </form>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="{% url 'login' %}" method="post">
+    <div class=" {% if login_form.errors.username %}errorput{% endif %}">
+        <label>用户名</label>
+        <input type="text" name="username"><br><br>
+    </div>
+    <div class="{% if login_form.errors.password %}errorput{% endif %}">
+        <label>密码</label>
+        <input type="password" name="password"><br><br>
+    </div>
+        <label>验证码</label>
+        {{ login_form.captcha }}<br><br>
+        <input type="submit" value="提交"><br><br>
+        <a href="{% url 'forget' %}">忘记密码</a>
+        {% csrf_token %}
+</form>
+</body>
+</html>
