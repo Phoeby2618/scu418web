@@ -36,6 +36,10 @@ class ActivityAdmin(admin.ModelAdmin):
     pass
 
 
+class ImageAdmin(admin.ModelAdmin):
+    pass
+
+
 class ResourceAdmin(admin.ModelAdmin):
     pass
 
@@ -47,6 +51,7 @@ admin.site.register(Project,ProjectAdmin)
 admin.site.register(Research,ResearchAdmin)
 admin.site.register(Information,InformationAdmin)
 admin.site.register(Activity,ActivityAdmin)
+admin.site.register(Image, ImageAdmin)
 admin.site.register(Resource,ResearchAdmin)
 
 
