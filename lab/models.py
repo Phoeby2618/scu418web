@@ -96,11 +96,23 @@ class Information(models.Model):
 class Activity(models.Model):
     name = models.CharField(verbose_name=u'活动主题', max_length=50)
     desc = models.TextField(verbose_name=u'活动详情')
-    image = models.ImageField(verbose_name=u'活动图片', upload_to='image/', max_length=100)
     time = models.DateField(verbose_name=u'活动时间')
 
     class Meta:
         verbose_name = u'活动'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+    
+    
+ class Image(models.Model):
+    activity = models.ForeignKey(Activity, verbose_name=u'活动')
+    name = models.CharField(verbose_name=u'图片名称', max_length=30)
+    photo = models.ImageField(verbose_name=u'活动图片', upload_to='image/', max_length=100)
+
+    class Meta:
+        verbose_name = u'活动图片'
         verbose_name_plural = verbose_name
 
     def __str__(self):
