@@ -1,4 +1,3 @@
-beautifulsoup4==4.6.0
 boto==2.48.0
 captcha==0.2.4
 certifi==2017.7.27.1
