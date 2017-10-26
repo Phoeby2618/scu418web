@@ -70,6 +70,9 @@ class Project(models.Model):
 class Research(models.Model):
     name = models.CharField(verbose_name=u'论文专著名称', max_length=50)
     content = models.TextField(verbose_name=u'论文专著详情')
+    genre = models.CharField(verbose_name=u'科研分类', choices=(('paper', '论文'), ('monograph', '专著')),
+                                null=True, max_length=30)
+    prize = models.BooleanField(verbose_name=u'是否获奖', default=False)
     time = models.DateField(verbose_name=u'论文专著发表时间')
 
     class Meta:
@@ -83,6 +86,8 @@ class Research(models.Model):
 class Information(models.Model):
     title = models.CharField(verbose_name=u'通知标题', max_length=50)
     content = models.TextField(verbose_name=u'通知内容')
+    genre = models.CharField(verbose_name=u'通知类型', choices=(('news', '校内新闻'), ('lecture', '讲座信息'),
+                                                               ('conference', '会议通知')),null=True, max_length=30)
     time = models.DateTimeField(default=datetime.now, verbose_name=u'通知发布时间')
 
     class Meta:
@@ -96,6 +101,8 @@ class Information(models.Model):
 class Activity(models.Model):
     name = models.CharField(verbose_name=u'活动主题', max_length=50)
     desc = models.TextField(verbose_name=u'活动详情')
+    genre = models.CharField(verbose_name=u'活动类型', choices=(('study', '学习'), ('entertainment', '娱乐')),
+                             null=True, max_length=30)
     time = models.DateField(verbose_name=u'活动时间')
 
     class Meta:
