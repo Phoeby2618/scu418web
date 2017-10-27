@@ -139,3 +139,64 @@ class Resource(models.Model):
 
     def __str__(self):
         return self.resource_name
+    
+    
+   class Prize(models.Model):
+    name = models.CharField(verbose_name=u'奖项名称', max_length=100)
+    desc = models.TextField(verbose_name=u'奖项详情')
+    time = models.DateField(verbose_name=u'获奖时间')
+
+    class Meta:
+        verbose_name = u'实验室获奖'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.name
+
+
+class TeacherProject(models.Model):
+    teacher = models.ForeignKey(Teacher, verbose_name=u'教师')
+    project = models.ForeignKey(Project, verbose_name=u'项目')
+
+    class Meta:
+        verbose_name = u'教师项目表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '教师'+str(self.teacher_id)+'项目'+str(self.project_id)
+
+
+class TeacherResearch(models.Model):
+    teacher = models.ForeignKey(Teacher, verbose_name=u'教师')
+    research = models.ForeignKey(Research, verbose_name=u'科研')
+
+    class Meta:
+        verbose_name = u'教师科研表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '教师'+str(self.teacher_id)+'科研'+str(self.research_id)
+
+
+class StudentProject(models.Model):
+    student = models.ForeignKey(Student, verbose_name=u'学生')
+    project = models.ForeignKey(Project, verbose_name=u'项目')
+
+    class Meta:
+        verbose_name = u'学生项目表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '学生'+str(self.student_id)+'项目'+str(self.project_id)
+
+
+class StudentResearch(models.Model):
+    student = models.ForeignKey(Student, verbose_name=u'学生')
+    research = models.ForeignKey(Research, verbose_name=u'科研')
+
+    class Meta:
+        verbose_name = u'学生科研表'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '学生' + str(self.student_id) + '科研' + str(self.research_id)
