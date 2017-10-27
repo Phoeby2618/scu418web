@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from lab.views import homepage,brief_introduction_of_laboratory,test
-from forum.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView, ResetPwdView, ModifyView, ForumView
+from forum.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView, ResetPwdView, ModifyView, ForumView, LogoutView
 
 urlpatterns = [
     url(r'^$', homepage),
@@ -27,6 +27,7 @@ urlpatterns = [
     url(r'^captcha/', include('captcha.urls')),
     url(r'^forum/$', ForumView.as_view(),name='forumIndex'),
     url(r'^login/$', LoginView.as_view(), name='login'),
+    url(r'^logout/$', LogoutView.as_view(), name='logout'),
     url(r'^register/', RegisterView.as_view(), name='register'),
     url(r'^active/(?P<active_code>.*)/$', ActiveUserView.as_view(), name='active'),
     url(r'^forget/$', ForgetPwdView.as_view(), name='forget'),
