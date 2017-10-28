@@ -72,6 +72,7 @@ class Research(models.Model):
     content = models.TextField(verbose_name=u'论文专著详情')
     genre = models.CharField(verbose_name=u'科研分类', choices=(('paper', '论文'), ('monograph', '专著')),
                                 null=True, max_length=30)
+    thesis = models.FileField(verbose_name=u'论文文件', upload_to='thesis/', max_length=100, null=True)
     prize = models.BooleanField(verbose_name=u'是否获奖', default=False)
     time = models.DateField(verbose_name=u'论文专著发表时间')
 
