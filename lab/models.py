@@ -71,7 +71,7 @@ class Research(models.Model):
     name = models.CharField(verbose_name=u'论文专著名称', max_length=50)
     content = models.TextField(verbose_name=u'论文专著详情')
     genre = models.CharField(verbose_name=u'科研分类', choices=(('paper', '论文'), ('monograph', '专著')),
-                                null=True, max_length=30)
+                             null=True, max_length=30)
     thesis = models.FileField(verbose_name=u'论文文件', upload_to='thesis/', max_length=100, null=True)
     prize = models.BooleanField(verbose_name=u'是否获奖', default=False)
     time = models.DateField(verbose_name=u'论文专著发表时间')
@@ -88,7 +88,7 @@ class Information(models.Model):
     title = models.CharField(verbose_name=u'通知标题', max_length=50)
     content = models.TextField(verbose_name=u'通知内容')
     genre = models.CharField(verbose_name=u'通知类型', choices=(('news', '校内新闻'), ('lecture', '讲座信息'),
-                                                               ('conference', '会议通知')),null=True, max_length=30)
+                                                            ('conference', '会议通知')), null=True, max_length=30)
     time = models.DateTimeField(default=datetime.now, verbose_name=u'通知发布时间')
 
     class Meta:
@@ -112,9 +112,9 @@ class Activity(models.Model):
 
     def __str__(self):
         return self.name
-    
-    
- class Image(models.Model):
+
+
+class Image(models.Model):
     activity = models.ForeignKey(Activity, verbose_name=u'活动')
     name = models.CharField(verbose_name=u'图片名称', max_length=30)
     photo = models.ImageField(verbose_name=u'活动图片', upload_to='image/', max_length=100)
@@ -125,7 +125,6 @@ class Activity(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class Resource(models.Model):
     resource_name = models.CharField(verbose_name=u'资源名称', max_length=30)
@@ -140,9 +139,8 @@ class Resource(models.Model):
 
     def __str__(self):
         return self.resource_name
-    
-    
-   class Prize(models.Model):
+
+class Prize(models.Model):
     name = models.CharField(verbose_name=u'奖项名称', max_length=100)
     desc = models.TextField(verbose_name=u'奖项详情')
     time = models.DateField(verbose_name=u'获奖时间')

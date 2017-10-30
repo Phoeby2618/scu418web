@@ -1,0 +1,28 @@
+{% extends 'base2.html' %}
+{% block title %}欢迎来到418lab{% endblock %}
+{% block content %}
+
+    <div style="border: solid rgba(104,52,42,0.14) 1px;" class="container table-responsive">
+        <label style="padding: 20px;   ">信息通知 > 实验室通知 </label>
+
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>校内通知</th>
+                        <th>发布时间</th>
+                    </tr>
+                </thead>
+                <tbody  >
+                    {% for infor in Infor    %}
+                    <tr>
+                       <td> <a href=" {%  url 'lab:infor'   infor.id %} ">{{ infor.title }}</a> </td>
+                        <td> {{infor.time|date:"Y-m-d"}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+
+    </div>
+
+{% endblock %}

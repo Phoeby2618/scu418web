@@ -1,0 +1,26 @@
+{% extends 'base2.html' %}
+{% block title %}欢迎来到418lab{% endblock %}
+{% block content %}
+<div style="border: solid rgba(104,52,42,0.14) 1px;" class="container table-responsive">
+    <label style="padding: 20px;   ">实验室成员 > 毕业生</label>
+    <div class="row">
+        {% for student in students %}
+      <div style="width: 50%;height: 300px;padding: 10px 50px;float: left" >
+
+        <div class="row">
+          <div class="col-xs-10 col-sm-7">
+            <img class="img-rounded" style=" width:200px ;height: 250px " src="/static/{{ student.photo }}" />
+
+          </div>
+          <div class="col-xs-10 col-sm-5">
+            姓名：{{ student.name }}
+              <br>学位：{{ student.degree }}
+              <br>毕业去向: {{ student.job }}
+              <br>个人简介：{{ student.individual }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

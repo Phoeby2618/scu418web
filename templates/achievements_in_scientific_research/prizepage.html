@@ -1,0 +1,18 @@
+<!-- brief_introduction_of_laboratory.html -->
+{% extends 'base2.html' %}
+{% block title %}实验室简介{% endblock %}
+{% block content %}
+    <div style="border: solid rgba(104,52,42,0.14) 1px;" class="container table-responsive">
+        <label style="padding: 20px;   ">科研成果 > 获奖 > {{ prize.name }}</label>
+        <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ monograph.name }}</h3>
+        </div>
+        <div class="panel-body">
+
+            {{ prize.desc }}
+
+        </div>
+        </div>
+    </div>
+{% endblock %}

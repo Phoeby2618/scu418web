@@ -1,0 +1,43 @@
+{% extends 'base2.html' %}
+{% block title %}欢迎来到418lab{% endblock %}
+{% block content %}
+<style rel="stylesheet">
+    img{
+        width:300px ;
+        height: 180px;
+    }
+
+</style>
+
+    <div style="border: solid rgba(104,52,42,0.14) 1px;" class="container table-responsive">
+        <label style="padding: 20px;   ">实验室生活 > 学习生活 </label>
+        <br>
+
+        <div class="row" style="padding: 0 50px;">
+
+            {% for act in Activity    %}
+
+                <div style="width: 45%;height: 300px;padding: 50px 100px;float: left">
+                    <TABLE>
+                        <tbody style="text-align: center">
+                                <tr><td>{{ act.name }}</td></tr>
+                                {% for pic in Picture %}
+
+                                    {% if pic.activity.name == act.name %}
+                                         <tr><td style="padding: 10px 0;"> <img class="img-rounded" src="/static/{{ pic.photo }}" /></td></tr>
+
+                                    {% endif %}
+
+                                 {% endfor %}
+                                <tr><td> {{ act.desc}}</td></tr>
+
+                        </tbody>
+                    </TABLE>
+                </div>
+
+            {% endfor%}
+        </div>
+
+    </div>
+
+{% endblock %}

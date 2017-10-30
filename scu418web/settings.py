@@ -132,3 +132,8 @@ EMAIL_HOST_USER = "cswangjiawei@163.com"
 EMAIL_HOST_PASSWORD = "wangjiawei0524"
 EMAIL_USE_TLS = False
 EMAIL_FROM = "cswangjiawei@163.com"
+
+
+MEDIA_ROOT = 'static/'
+
+MEDIA_URL = '/'

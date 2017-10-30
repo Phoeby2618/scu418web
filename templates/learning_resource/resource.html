@@ -1,0 +1,37 @@
+{% extends 'base2.html' %}
+{% block title %}欢迎来到418lab{% endblock %}
+{% block content %}
+<style rel="stylesheet">
+    img{
+        width:300px ;
+        height: 180px;
+    }
+
+</style>
+
+    <div style="border: solid rgba(104,52,42,0.14) 1px;" class="container table-responsive">
+        <label style="padding: 20px;   ">学习资源 > 本站学习资源 </label>
+        <br>
+        {% for re in Resources    %}
+        <div class="row" style="margin: 10px 0px;border: solid 1px tan;">
+
+                <div class="col-md-9">
+                    <TABLE class="table" style="border: 0px solid white">
+                        <tbody >
+                                <tr><td>{{ re.resource_name }}</td></tr>
+                                <tr><td >{{ re.desc }}</td></tr>
+                                <tr><td> 上传人：{{ re.author_name}}</td><td> 上传时间：{{ re.time|date:"Y-m-d"}}</td></tr>
+
+                        </tbody>
+                    </TABLE>
+                </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-success" style="margin-top: 20%;">点击下载</button>
+                </div>
+        </div>
+
+    {% endfor%}
+
+    </div>
+
+{% endblock %}

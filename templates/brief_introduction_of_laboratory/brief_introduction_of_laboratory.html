@@ -2,7 +2,6 @@
 {% extends 'base2.html' %}
 {% block title %}实验室简介{% endblock %}
 {% block content %}
-    <div class="container">
     <div class="panel-heading">
             <p style="font-family: '微软雅黑';font-size: 14pt;font-weight: bold;">
                 简介
@@ -10,7 +9,9 @@
         </div>
         <div class="panel-body" style="background-color: lavender">
             <p>
-                scuclab是一个神秘的实验室，没有人知道它是什么时候开始建立的，话说...
+                {% for la in laboratory %}
+                        {{ la.introduction }}
+                {% endfor %}
             </p>
         </div>
         <br>
@@ -21,7 +22,9 @@
         </div>
         <div class="panel-body" style="background-color: lavender">
             <p>
-                如果你的力量足够大，规则由你来定。Scu418实验室就是弱肉强食的森林，只有足够强大，才能存活下来。
+                {% for la in laboratory %}
+                        {{ la.rules}}
+                {% endfor %}
             </p>
         </div>
 
@@ -33,9 +36,10 @@
         </div>
         <div class="panel-body" style="background-color: lavender">
             <p>
-                数据挖掘又称数据库中的知识发现（Knowledge Discover in Database，KDD），是目前人工智能和数据库领域研究的热点问题，所谓数据挖掘是指从数据库的大量数据中揭示出隐含的、先前未知的并有潜在价值的信息的非平凡过程。数据挖掘是一种决策支持过程，它主要基于人工智能、机器学习、模式识别、统计学、数据库、可视化技术等，高度自动化地分析企业的数据，做出归纳性的推理，从中挖掘出潜在的模式，帮助决策者调整市场策略，减少风险，做出正确的决策。
+               {% for la in laboratory %}
+                        {{ la.research_area}}
+                {% endfor %}
             </p>
         </div>
-    </div>
         <br>
 {% endblock %}

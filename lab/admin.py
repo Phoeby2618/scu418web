@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django.contrib import admin
 
-from lab.models import Laboratory, Teacher, Student, Project, Research, Information, Activity, Resource, Prize, TeacherProject, TeacherResearch, StudentProject, StudentResearch
+from lab.models import Laboratory, Teacher, Student, Project, Research, Information, Activity, Resource, Prize, TeacherProject, TeacherResearch, StudentProject, StudentResearch,Image
 
 # Register your models here.
 
@@ -36,13 +36,12 @@ class ActivityAdmin(admin.ModelAdmin):
     pass
 
 
-class ImageAdmin(admin.ModelAdmin):
-    pass
-
-
 class ResourceAdmin(admin.ModelAdmin):
     pass
 
+
+class ImageAdmin(admin.ModelAdmin):
+    pass
 
 class PrizeAdmin(admin.ModelAdmin):
     pass

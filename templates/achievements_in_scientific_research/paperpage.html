@@ -1,0 +1,33 @@
+<!-- brief_introduction_of_laboratory.html -->
+{% extends 'base2.html' %}
+{% block title %}实验室简介{% endblock %}
+{% block content %}
+    <form action="{% url 'lab:download' paper.id%}" method="post">
+    {% csrf_token %}
+        <div style="border: solid rgba(104,52,42,0.14) 1px;" class="container table-responsive">
+            <label style="padding: 20px;   ">科研成果 > 论文 > {{ paper.name }}</label>
+            <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{ paper.name }}</h3>
+            </div>
+            <div class="panel-body">
+
+                {{ paper.content }}
+                <br><br>
+                作者:{% for ps in paper_student %}
+                          {% if ps.student.graduate == False %}
+                              <a href="{%  url 'lab:s_student' %}">{{ ps.student.name }}</a>
+                          {% else %}
+                              <a href="{%  url 'lab:g_student' %}">{{ ps.student.name }}</a>
+                          {% endif %}
+
+                      {% endfor %}
+                     {% for pt in paper_teacher %}
+                        <a href="{%  url 'lab:teacher' %}">{{ pt.teacher.name }}</a>
+                     {% endfor %}
+            <button onclick="window.location.href='{% url 'lab:download' paper.id%}'" >Download</button>
+            </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

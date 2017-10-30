@@ -1,0 +1,33 @@
+<!-- brief_introduction_of_laboratory.html -->
+{% extends 'base2.html' %}
+{% block title %}实验室简介{% endblock %}
+{% block content %}
+    <form action="{% url 'lab:download' monograph.id%}" method="post">
+    {% csrf_token %}
+    <div style="border: solid rgba(104,52,42,0.14) 1px;" class="container table-responsive">
+        <label style="padding: 20px;   ">科研成果 > 专著 > {{ monograph.name }}</label>
+        <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ monograph.name }}</h3>
+        </div>
+        <div class="panel-body">
+
+            {{ monograph.content }}
+            <br><br>
+            作者:{% for ms in monograph_student %}
+                      {% if ms.student.graduate == False %}
+                          <a href="{%  url 'lab:s_student' %}">{{ ms.student.name }}</a>
+                      {% else %}
+                          <a href="{%  url 'lab:g_student' %}">{{ ms.student.name }}</a>
+                      {% endif %}
+
+                  {% endfor %}
+                 {% for mt in monograph_teacher %}
+                    <a href="{%  url 'lab:teacher' %}">{{ mt.teacher.name }}</a>
+                 {% endfor %}
+        <button onclick="window.location.href='{% url 'lab:download' monograph.id%}'" >Download</button>
+        </div>
+        </div>
+    </div>
+    </form>
+{% endblock %}
