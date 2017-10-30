@@ -19,3 +19,4 @@ EMAIL_HOST改成你们自己邮箱的名字，比如：新浪邮箱就改成"smt
 EMAIL_HOST_USER改成你们自己的邮箱，EMAIL_HOST_PASSWORD如果是网易邮箱改成你们自己的授权码，如果是新浪邮箱应该是改成登录密码，EMAIL_FROM 和EMAIL_HOST_USER一致。 
 
 2017/10/25 重写前端主页
+2017/10/30 完成实验室APP的书写
