@@ -168,10 +168,37 @@ def lifeStudyPage(request):
     pictures = models.Image.objects.all()
     return render(request, 'laboratory_life/lifeOstudy.html', {"Activity":activity,"Picture":pictures})
 
+# 活动详情页面
+def lifeContentPage(request,life_id):
+    activity = models.Activity.objects.get(pk=life_id)
+    pictures = activity.image_set.all()
+    return render(request, 'laboratory_life/lifeContent.html', {"Activity":activity,"Picture":pictures})
+
 # 学习资源
 def resourcesPage(request):
     resources=models.Resource.objects.all()
     return render(request, 'learning_resource/resource.html', {"Resources":resources})
+
+# 学习资源下载
+def fileDownload(request,re_id):
+    # do something
+    resource=models.Resource.objects.get(pk=re_id)
+    path=str(resource.path)
+    the_file_name=path[8:]             #显示在弹出对话框中的默认的下载文件名
+    filename='static/'+path    #要下载的文件路径
+    response=StreamingHttpResponse(readFile(filename))
+    response['Content-Type']='application/octet-stream'
+    response['Content-Disposition']='attachment;filename="{0}"'.format(the_file_name)
+    return response
+
+def readFile(filename,chunk_size=512):
+    with open(filename,'rb') as f:
+        while True:
+            c=f.read(chunk_size)
+            if c:
+                yield c
+            else:
+               break
 
 # 链接页面
 def linkPage(request):
