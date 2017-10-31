@@ -1,0 +1,19 @@
+{% extends 'base2.html' %}
+{% block title %}欢迎来到418lab{% endblock %}
+{% block content %}
+
+    <div style="border: solid rgba(104,52,42,0.14) 1px;" class="container table-responsive">
+        <label style="padding: 20px;   ">实验室生活 > {{Activity.name }} </label>
+
+                <h3 class="panel-title" style="text-align: center">{{ Activity.name }}</h3>
+                <div class="container" style="text-align: center">
+                    {{ Activity.desc }}
+                    {% for pic in Picture %}
+                        <div ><img src="/static/{{ pic.photo }}" ></div>
+                        <p > {{ pic.name }}</p>
+                      {% endfor %}
+                </div>
+
+    </div>
+
+{% endblock %}
